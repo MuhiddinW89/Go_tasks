@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+package dict;
+
+option go_package = "app/dict";
+
+service TranslateService {
+
+    rpc Dictionary(DictionaryRequest) returns (DictionaryResponse) {}
+    rpc CreateDictionary(CreateDictionaryRequest) returns (CreateDictionaryResponse) {}
+    rpc GetDictionary(GetDictionaryRequest) returns (GetDictionaryResponse){}
+    rpc SumArr(SumArrRequest) returns (SumArrResponse) {}
+    
+    rpc Add (AddRequest) returns (AddResponse) {}
+    rpc Div (DivRequest) returns (DivResponse) {}
+    rpc Mult (MultRequest) returns (MultResponse) {}
+    rpc Sub (SubRequest) returns (SubResponse) {}
+    rpc Sqrt (SqrtRequest) returns (SqrtResponse) {}
+    rpc Pow (PowRequest) returns (PowResponse) {}
+    rpc Min (MinRequest) returns (MinResponse) {}
+}
+
+
+message DictionaryRequest {
+    string word = 1;
+}
+message DictionaryResponse {
+    string definition = 1;
+}
+
+
+message CreateDictionaryRequest {
+    string word = 1;
+    string definition = 2;
+}
+message CreateDictionaryResponse {
+}
+
+
+message GetDictionaryRequest {
+    string key = 1;
+}
+message GetDictionaryResponse {
+    string value = 1;
+}
+
+message SumArrRequest {
+    repeated int32 data = 1;
+}
+message SumArrResponse {
+    int32 sum = 1;
+}
+
+message AddRequest{
+    int64 firsNum = 1;
+    int64 secondNum = 2;
+}
+message AddResponse{
+    int64 result = 1;
+}
+
+message DivRequest {
+    int64 firsNum = 1;
+    int64 secondNum = 2;
+}
+message DivResponse {
+    int64 result = 1;
+}
+
+message MultRequest {
+    int64 firsNum = 1;
+    int64 secondNum = 2;
+}
+message MultResponse {
+    int64 result = 1;
+}
+
+message SubRequest {
+    double firsNum = 1;
+    double secondNum = 2;
+}
+message SubResponse {
+    double result = 1;
+}
+
+message SqrtRequest {
+    double firsNum = 1;
+}
+message SqrtResponse {
+    double   result = 1;
+}
+
+message PowRequest {
+    int64 firsNum = 1;
+    int64 secondNum = 2;
+}
+message PowResponse {
+    int64 result = 1;
+}
+
+message MinRequest {
+    int64 firsNum = 1;
+    int64 secondNum = 2;
+}
+message MinResponse {
+    int64 result = 1;
+}
+// --Add
+// --Div
+// --Mult
+// --Sub
+// --Sqrt
+// --Pow
+// --Min
