@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+package dict;
+
+option go_package = "app/dict";
+
+service TranslateService {
+
+    rpc Dictionary(DictionaryRequest) returns (DictionaryResponse) {}
+    rpc CreateDictionary(CreateDictionaryRequest) returns (CreateDictionaryResponse) {}
+    rpc GetDictionary(GetDictionaryRequest) returns (GetDictionaryResponse){}
+    rpc SumArr(SumArrRequest) returns (SumArrResponse) {}
+    rpc Currency(CurrencyRequest) returns (CurrencyResponse) {}
+    rpc Max(MaxRequest) returns (MaxResponse) {}
+    rpc Pdf(PdfReq) returns (PdfRes) {}
+}
+
+message MaxRequest{
+    repeated int32 data = 1;
+}
+
+message MaxResponse{
+    int32 max = 1;
+}
+
+message DictionaryRequest {
+    string word = 1;
+}
+message DictionaryResponse {
+    string definition = 1;
+}
+
+
+message CreateDictionaryRequest {
+    string word = 1;
+    string definition = 2;
+}
+message CreateDictionaryResponse {
+}
+
+
+message GetDictionaryRequest {
+    string key = 1;
+}
+message GetDictionaryResponse {
+    string value = 1;
+}
+
+message SumArrRequest {
+    repeated int32 data = 1;
+}
+message SumArrResponse {
+    int32 sum = 1;
+}
+
+message CurrencyRequest{
+    string valuteName = 1;
+}
+message CurrencyResponse {
+    int64 id = 1;
+    string Code = 2;
+    string Ccy = 3;
+    string CcyNm_RU = 4;
+    string CcyNm_UZ = 5;
+    string CcyNm_UZC = 6;
+    string CcyNm_EN = 7;
+    string Nominal = 8;
+    string Rate = 9;
+    string Diff = 10;
+    string Date = 11;   
+}
+
+message PdfReq{
+    string rawPath = 1;
+}
+message PdfRes{
+    string readyPath = 1;
+}
